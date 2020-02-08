@@ -1,0 +1,19 @@
+---
+#
+# Install/run elasticsearch
+#
+# Requirenents: 
+# (https://www.elastic.co/guide/en/elasticsearch/hadoop/current/requirements.html)
+# we strongly recommend using the latest JDK 8 (at least u20 or higher). If that is not an option, use JDK 7.0 update u55 (required for Elasticsearch 1.2 or higher). 
+
+- name: Install openJDK
+  yum:
+    name: java-1.8.0-openjdk-devel
+  become: true
+
+# https://computingforgeeks.com/how-to-install-java-11-openjdk-11-on-rhel-8/
+# cat > /etc/profile.d/java11.sh <<EOF
+# export JAVA_HOME=\$(dirname \$(dirname \$(readlink \$(readlink \$(which javac)))))
+# export PATH=\$PATH:\$JAVA_HOME/bin
+# export CLASSPATH=.:\$JAVA_HOME/jre/lib:\$JAVA_HOME/lib:\$JAVA_HOME/lib/tools.jar
+# EOF

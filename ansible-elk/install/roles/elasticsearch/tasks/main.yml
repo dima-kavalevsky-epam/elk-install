@@ -1,0 +1,16 @@
+---
+#
+# Install/run elasticsearch
+#
+
+
+- name: Check if Elasticsearch service exist
+  shell: service elasticsearch status
+  register: elasticsearch_status
+  ignore_errors: true  
+  become: true
+
+# - debug: msg="{{ elasticsearch_status }}"
+
+- include_tasks: elasticsearch.yml
+  when: elasticsearch_status.rc != 0
