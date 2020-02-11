@@ -6,10 +6,10 @@ A vagrant box that provisions Oracle software automatically, using Vagrant, an O
 ## Prerequisites
 1. Install [Oracle VM VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 2. Install [Vagrant](https://vagrantup.com/)
-3. install [Git client]()
+3. install [Git client](https://git-scm.com/download/gui/windows)
 
 ## Getting started
-1. Clone this repository `git clone https://github.com/oracle/vagrant-boxes`
+1. Clone this repository `git clone https://github.com/dima-kavalevsky-epam/elk-install`
 2. Change into the desired software folder
 3. Follow the README.md instructions inside the folder
 
@@ -37,8 +37,10 @@ cd /workspace/
 ## Replace hostnames in inventory file
 sed -i 's/host-01/elkserver/' hosts
 sed -i 's/host-02/elkclient/' hosts
+# Generating a new SSH key and adding it to the ssh-agent
 ssh-keygen 
 
+## Set PasswordAuthentication to yes for currecnt VM
 sudo sed -i -e 's/^PasswordAuthentication no/PasswordAuthentication yes/' -e 's/^#PasswordAuthentication yes/PasswordAuthentication yes/' /etc/ssh/sshd_config
 sudo /sbin/service sshd restart
 sudo systemctl restart sshd
