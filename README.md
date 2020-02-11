@@ -6,6 +6,7 @@ A vagrant box that provisions Oracle software automatically, using Vagrant, an O
 ## Prerequisites
 1. Install [Oracle VM VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 2. Install [Vagrant](https://vagrantup.com/)
+3. install [Git client]()
 
 ## Getting started
 1. Clone this repository `git clone https://github.com/oracle/vagrant-boxes`
@@ -16,7 +17,7 @@ A vagrant box that provisions Oracle software automatically, using Vagrant, an O
 
 This is the source code to along with the blog article [ELK-Stack-with-Vagrant-and-Ansible](http://xplordat.com/2017/12/12/elk-stack-with-vagrant-and-ansible/)
 
-* Make sure that the host has sufficient CPU & RAM to build 7 vms as this one does.
+* Make sure that the host has sufficient CPU & RAM to build 2 vms as this one does.
 * You can adjust the memory requirements in 'Vagrantfile'.
 
 1. Generate two VM's by vagrant tool 
@@ -28,11 +29,12 @@ vagrant up
 2. Log in to ELKserver server and prepare to run ansible playbooks.
 
 ```sh
+
 vagrant ssh elkserver
-export LANG="en_EN.UTF-8"
 alias mc='LANG=en_EN.UTF-8 mc'
 
 cd /workspace/
+## Replace hostnames in inventory file
 sed -i 's/host-01/elkserver/' hosts
 sed -i 's/host-02/elkclient/' hosts
 ssh-keygen 
