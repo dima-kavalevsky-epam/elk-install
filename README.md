@@ -1,5 +1,5 @@
-# ELK stack 'Tech talk'
-======================
+ELK stack install
+=================
 
 A vagrant box that provisions Oracle software automatically, using Vagrant, an Oracle Linux box and a shell script.
 
