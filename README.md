@@ -75,3 +75,15 @@ curl -O http://192.168.56.21:8080/beat-forwarder.key
 cd /workspace/
 ansible-playbook -i hosts install/elk_client.yml --extra-vars 'elk_server=192.168.56.21'
 ```
+
+6. Browse the link to Kibana
+
+- [Kibana](http://192.168.56.21:80)
+
+Account: 
+
+-------------
+username | password 
+------------
+admin | admin
+-------------
