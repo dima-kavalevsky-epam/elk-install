@@ -80,10 +80,4 @@ ansible-playbook -i hosts install/elk_client.yml --extra-vars 'elk_server=192.16
 
 - [Kibana](http://192.168.56.21:80)
 
-Account: 
-
--------------
-username | password 
-------------
-admin | admin
--------------
+Account: admin/admin
