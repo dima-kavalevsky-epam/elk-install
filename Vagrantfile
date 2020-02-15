@@ -49,25 +49,25 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     elkserver_config.vm.synced_folder "ansible-elk/", "/workspace", id: "workspace-root",owner: "vagrant", group: "vagrant",mount_options: ["dmode=775,fmode=664"]
     elkserver_config.vm.provider "virtualbox" do |vb|
         vb.gui = false
-        vb.customize ['modifyvm', :id, '--memory', '4048']
+        vb.customize ['modifyvm', :id, '--memory', '1800']
         vb.customize ["modifyvm", :id, "--cpus", "1"]
         vb.customize ["modifyvm", :id, "--nictype1", "virtio"]        
     end
   end 
 #=====================================
-   config.vm.define "elkclient" do |elkclient_config|
-    elkclient_config.vm.box = "centos/7"
-    elkclient_config.ssh.insert_key = false
-    elkclient_config.vm.hostname = "elkclient"
-    elkclient_config.vm.provision "shell", inline: $script_update_hosts
-    elkclient_config.vm.provision "shell", inline: $script_centos7
-    elkclient_config.vm.synced_folder "ansible-elk/", "/workspace", id: "workspace-root", owner: "vagrant", group: "vagrant", mount_options: ["dmode=775,fmode=664"]
-    elkclient_config.vm.network "private_network", ip: "192.168.56.22"
-    elkclient_config.vm.provider "virtualbox" do |vb|
-        vb.gui = false
-        vb.customize ['modifyvm', :id, '--memory', '512']
-        vb.customize ["modifyvm", :id, "--cpus", "1"]
-        vb.customize ["modifyvm", :id, "--nictype1", "virtio"]
-    end  
-  end
+  #  config.vm.define "elkclient" do |elkclient_config|
+  #   elkclient_config.vm.box = "centos/7"
+  #   elkclient_config.ssh.insert_key = false
+  #   elkclient_config.vm.hostname = "elkclient"
+  #   elkclient_config.vm.provision "shell", inline: $script_update_hosts
+  #   elkclient_config.vm.provision "shell", inline: $script_centos7
+  #   elkclient_config.vm.synced_folder "ansible-elk/", "/workspace", id: "workspace-root", owner: "vagrant", group: "vagrant", mount_options: ["dmode=775,fmode=664"]
+  #   elkclient_config.vm.network "private_network", ip: "192.168.56.22"
+  #   elkclient_config.vm.provider "virtualbox" do |vb|
+  #       vb.gui = false
+  #       vb.customize ['modifyvm', :id, '--memory', '512']
+  #       vb.customize ["modifyvm", :id, "--cpus", "1"]
+  #       vb.customize ["modifyvm", :id, "--nictype1", "virtio"]
+  #   end  
+  # end
 end

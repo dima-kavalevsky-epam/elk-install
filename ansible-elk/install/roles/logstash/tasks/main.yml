@@ -27,7 +27,7 @@
     mode: 0644
   with_items:
     - 'logstash.conf'
-    - '04-apache.conf'
+    - '04-nginx.conf'
   become: true
 
 # workaround, sometimes they forget to package this

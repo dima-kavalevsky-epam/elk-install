@@ -18,11 +18,10 @@ A vagrant box that provisions Oracle software automatically, using Vagrant, an O
 This is the source code to along with the blog article [ELK-Stack-with-Vagrant-and-Ansible](http://xplordat.com/2017/12/12/elk-stack-with-vagrant-and-ansible/)
 
 * Make sure that the host has sufficient CPU & RAM to build 2 vms as this one does.
-* You can adjust the memory requirements in 'Vagrantfile'.
+* You can adjust the memory requirements in 'Vagrantfile'. Remember 5Gb RAM is required only for VM's!
 
 1. Generate two VM's by vagrant tool 
 ```sh
-vagrant ssh-config
 vagrant up 
 ```
 
